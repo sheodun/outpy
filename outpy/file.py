@@ -18,6 +18,7 @@ class File:
     def __init__(self, path: str):
         """Initialise the File class with the file path and name."""
         self._path = path
+        self.write("")  # Initialise an empty file.
 
     @property
     def path(self) -> str:

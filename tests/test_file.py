@@ -1,14 +1,19 @@
 """Tests for the outpy/file_base.py file."""
 
+import os
+
 import pytest
 
-from outpy.file_base import File
+from outpy.file import File
 
 
 class TestFile:
     @pytest.fixture()
     def file(self, temporary_file):
         return File(temporary_file)
+
+    def test_file_is_initialised(self, file):
+        assert os.path.isfile(file.path)
 
     def test_write_to_file(self, file):
         file.write("this is a test function")
