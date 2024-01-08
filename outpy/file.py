@@ -26,33 +26,42 @@ class File:
         return self._path
 
     @open_file("w")
-    def clear(file) -> None:
-        """Write an empty file."""
+    def clear(self, file: str) -> None:
+        """Write an empty file.
+
+        Args:
+            file: path to the file.
+        """
         file.write("")
 
     @open_file("w")
-    def write(file, text: str) -> None:
+    def write(self, file: str, text: str) -> None:
         """Write a string to the file.
 
         This method will overwrite the contents of the file.
 
         Args:
+            file: path to the file.
             text: the string to write to the file.
         """
         file.write(text)
 
     @open_file("a")
-    def append(file, text: str) -> None:
+    def append(self, file: str, text: str) -> None:
         """Append a string to the file.
 
         Args:
+            file: path to the file.
             text: the string to append to the file.
         """
         file.write(text)
 
     @open_file("r")
-    def read(file) -> str:
+    def read(self, file: str) -> str:
         """Return the text in the file.
+
+        Args:
+            file: path to the file.
 
         Returns:
             The file contents as a string.
@@ -60,8 +69,11 @@ class File:
         return file.read()
 
     @open_file("r")
-    def readlines(file) -> Generator[str, None, None]:
+    def readlines(self, file: str) -> Generator[str, None, None]:
         """Return each line of the file.
+
+        Args:
+            file: path to the file.
 
         Returns:
             Each line of the file as a generator. Can handle

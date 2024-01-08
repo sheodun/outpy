@@ -14,7 +14,7 @@ def open_file(open_mode: str):
         @wraps(func)
         def wrapper(self, *args, **kwargs):
             with open(self.path, open_mode) as f:
-                return func(f, *args)
+                return func(self, f, *args)
 
         return wrapper
 
